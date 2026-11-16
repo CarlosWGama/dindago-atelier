@@ -14,7 +14,9 @@
     "build": "tsc -b && vite build",
     "build:api": "npm run build --workspace @dindago/backend",
     "lint": "oxlint",
-    "preview": "vite preview",
+    "preview": "npm run build && vite preview",
+    "deploy": "npm run build && wrangler deploy",
+    "deploy:check": "npm run build && wrangler deploy --dry-run",
     "db:migrate": "npm run prisma:migrate --workspace @dindago/backend",
     "db:push": "npm run prisma:push --workspace @dindago/backend",
     "db:seed": "npm run db:seed --workspace @dindago/backend",
@@ -27,6 +29,7 @@
     "react-router-dom": "^7.18.2"
   },
   "devDependencies": {
+    "@cloudflare/vite-plugin": "^1.69.1",
     "@tailwindcss/vite": "^4.3.3",
     "@types/node": "^24.13.3",
     "@types/react": "^19.2.18",
@@ -35,7 +38,8 @@
     "oxlint": "^1.79.0",
     "tailwindcss": "^4.3.3",
     "typescript": "~6.0.2",
-    "vite": "^8.2.2"
+    "vite": "^8.2.2",
+    "wrangler": "^4.162.0"
   },
   "workspaces": [
     "backend"

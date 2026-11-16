@@ -1,0 +1,23 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  // Precisa ser IGUAL ao nome do Worker conectado ao GitHub no painel da Cloudflare.
+  "name": "landing-page-dindago-atelier",
+  "main": "./worker/index.ts",
+  "compatibility_date": "2026-11-10",
+  "observability": { "enabled": true },
+
+  // O @cloudflare/vite-plugin preenche o diretório (dist/client) sozinho no build.
+  "assets": {
+    "binding": "ASSETS",
+    // Rotas do React Router (ex.: /admin/clientes/1) devolvem o index.html.
+    "not_found_handling": "single-page-application",
+    // Só estes caminhos passam pelo código do Worker (proxy para o backend).
+    // Todo o resto é servido direto como arquivo estático, sem custo de execução.
+    "run_worker_first": ["/api/*", "/uploads/*"]
+  },
+
+  // API_ORIGIN (endereço do backend Express, ex.: https://dindago-api.onrender.com)
+  // é configurada no painel: Worker > Settings > Variables and Secrets.
+  // keep_vars impede que cada deploy apague as variáveis definidas no painel.
+  "keep_vars": true
+}

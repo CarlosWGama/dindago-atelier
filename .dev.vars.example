@@ -1,0 +1,5 @@
+# Variáveis do Worker para `npm run preview` (copie para .dev.vars).
+# Em produção, configure no painel: Worker > Settings > Variables and Secrets.
+#
+# Endereço do backend Express. O Worker repassa /api e /uploads para ele.
+API_ORIGIN=http://localhost:3333

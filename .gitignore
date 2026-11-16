@@ -101,3 +101,13 @@ backend/*.db-wal
 backend/*.db-shm
 backend/prisma/*.db
 backend/prisma/*.db-journal
+
+# ============================================================================
+# Cloudflare Workers / Wrangler
+# ============================================================================
+# Estado local do Miniflare, cache e config de deploy gerada pelo build.
+.wrangler
+# Variáveis e segredos locais do Worker (versione apenas os .example).
+.dev.vars
+.dev.vars.*
+!.dev.vars.example
