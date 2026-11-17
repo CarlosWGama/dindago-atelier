@@ -174,7 +174,7 @@ export function Footer() {
 
         <div className="flex flex-col items-start justify-between gap-3 pt-6 sm:flex-row sm:items-center">
           <p className="etiqueta text-papel/70">
-            © {footer.copyrightYear} {siteConfig.name} · {siteConfig.segment}
+            © {footer.copyrightYear} {siteConfig.name} · {siteConfig.segment}   
           </p>
           <a
             href="#inicio"
@@ -183,6 +183,9 @@ export function Footer() {
             <span className="sublinhado">Voltar ao início ↑</span>
           </a>
         </div>
+          <p className="etiqueta text-papel/70">
+            · Criado por estudantes através do projeto de extensão Web Impulso do CESMAC   
+          </p>
       </div>
     </footer>
   );

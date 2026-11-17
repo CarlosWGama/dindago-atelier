@@ -21,7 +21,7 @@ export function criarApp() {
 
   app.use(
     cors({
-      origin: origensPermitidas,
+      origin: ['https://dindagoatelier.com.br', 'https://www.dindagoatelier.com.br'],
       // Necessário para o cookie de sessão atravessar portas diferentes no dev.
       credentials: true,
     }),
